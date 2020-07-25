@@ -1,5 +1,7 @@
 package com.michaelmagdy.paginglibraryexample.model;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -69,5 +71,11 @@ public class Books {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return super.equals(obj);
     }
 }
