@@ -8,11 +8,13 @@ import androidx.paging.PagedList;
 
 import com.michaelmagdy.paginglibraryexample.model.Books;
 import com.michaelmagdy.paginglibraryexample.model.BooksDataSourceFactory;
+import com.michaelmagdy.paginglibraryexample.model.Query;
 
 public class BooksListViewModel extends ViewModel {
 
     private LiveData<PagedList<Books>> booksPagedList;
     private LiveData<PageKeyedDataSource<Integer, Books>> liveDataSource;
+    private Query queryObj;
 
     public BooksListViewModel() {
 
@@ -28,5 +30,11 @@ public class BooksListViewModel extends ViewModel {
 
     public LiveData<PagedList<Books>> getBooksPagedList() {
         return booksPagedList;
+    }
+
+    public void setSearchQuery(String searchQuery) {
+
+        queryObj = new Query();
+        queryObj.setSearchQuery(searchQuery);
     }
 }

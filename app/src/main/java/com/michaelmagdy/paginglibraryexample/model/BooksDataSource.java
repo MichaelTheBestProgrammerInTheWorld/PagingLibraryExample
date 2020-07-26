@@ -10,12 +10,14 @@ import retrofit2.Response;
 public class BooksDataSource extends PageKeyedDataSource<Integer, Books> {
 
     private static final int FIRST_PAGE = 1;
-    public static final String DUMMY_QUERY = "Java";
+    //public static final String DUMMY_QUERY = "Java";
+    private Query queryObj;
 
     @Override
     public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, Books> callback) {
 
-        ApiClient.getApiClient().getApiInterface().getProgrammingBooks(DUMMY_QUERY, FIRST_PAGE)
+        queryObj = new Query();
+        ApiClient.getApiClient().getApiInterface().getProgrammingBooks(queryObj.getSearchQuery(), FIRST_PAGE)
         .enqueue(new Callback<BooksApiResponse>() {
             @Override
             public void onResponse(Call<BooksApiResponse> call, Response<BooksApiResponse> response) {
@@ -39,7 +41,7 @@ public class BooksDataSource extends PageKeyedDataSource<Integer, Books> {
     @Override
     public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Books> callback) {
 
-        ApiClient.getApiClient().getApiInterface().getProgrammingBooks(DUMMY_QUERY, params.key)
+        ApiClient.getApiClient().getApiInterface().getProgrammingBooks(queryObj.getSearchQuery(), params.key)
                 .enqueue(new Callback<BooksApiResponse>() {
                     @Override
                     public void onResponse(Call<BooksApiResponse> call, Response<BooksApiResponse> response) {
