@@ -9,9 +9,8 @@
         android:id="@+id/book_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -20,7 +19,7 @@
         android:id="@+id/book_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -32,24 +31,23 @@
         android:id="@+id/book_isbn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginBottom="16dp"
         android:textSize="20sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/book_image"
+        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintStart_toStartOf="@+id/book_title"
         tools:text="ISBN : 9780596007010" />
 
     <TextView
         android:id="@+id/book_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="$3.89"
+        android:layout_marginStart="4dp"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="63dp"
+        app:layout_constraintBottom_toTopOf="@id/book_isbn"
         app:layout_constraintStart_toEndOf="@+id/book_image"
         app:layout_constraintTop_toBottomOf="@id/book_title"
-        app:layout_constraintBottom_toTopOf="@id/book_isbn"
-        android:layout_marginStart="12dp"/>
+        tools:text="$3.89" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
